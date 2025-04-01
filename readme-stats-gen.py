@@ -3,29 +3,26 @@ import matplotlib.pyplot as plt
 plt.rcParams.update({'font.size': 20})
 import time
 
-# Replace with your GitHub username
 GITHUB_USERNAME = 'guilhermevbagio'
 
-# GitHub API URL for user repositories
 REPOS_URL = f'https://api.github.com/users/{GITHUB_USERNAME}/repos'
 
-mocking = False  # Define `mocking` globally at the start
+mocking = False 
 
 def check_rate_limit(response):
-    global mocking  # Declare global inside function
+    global mocking  
     remaining = int(response.headers.get('X-RateLimit-Remaining', 0))
     reset_time = int(response.headers.get('X-RateLimit-Reset', time.time()))
 
     if remaining == 0:
         wait_time = reset_time - time.time() + 1
         print(f"Rate limit exceeded. Waiting for {wait_time:.2f} seconds.")
-        mocking = True  # Set to True when rate limit is exceeded
+        mocking = True 
         return False
     else:
-        mocking = False  # Ensure it's False if limit is not exceeded
+        mocking = False 
         return True
 
-# Function to get repositories
 def get_repos():
     repos = []
     page = 1
@@ -42,7 +39,6 @@ def get_repos():
         page += 1
     return repos
 
-# Function to get languages for a repository
 def get_languages(repo_name):
     languages_url = f'https://api.github.com/repos/{GITHUB_USERNAME}/{repo_name}/languages'
     response = requests.get(languages_url)
@@ -52,7 +48,6 @@ def get_languages(repo_name):
         print(f"Error fetching languages for {repo_name}: {response.status_code}")
         return {}
 
-# Function to aggregate language usage
 def aggregate_languages():
     repos = get_repos()
     language_usage = {}
@@ -63,7 +58,6 @@ def aggregate_languages():
             language_usage[lang] = language_usage.get(lang, 0) + bytes
     return language_usage
 
-# Function to generate the bar chart
 def generate_bar_chart(language_usage):
     global mocking  # Ensure the function reads `mocking`
 
