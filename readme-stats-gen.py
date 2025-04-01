@@ -79,9 +79,9 @@ def generate_bar_chart(language_usage):
 
     ratio = 1920/370
 
-    fig = plt.figure(figsize=(5, 5))
+    fig = plt.figure(figsize=(19,2, 19,2/ratio))
     fig.set_facecolor('#000000')
-    plt.pie(labels=sorted_languages, x=sorted_usage, colors=['#5E1414', '#000000'])
+    plt.barh(labels=sorted_languages, x=sorted_usage, colors=['#5E1414', '#000000'])
     plt.xticks([])
     ax = plt.gca()
     ax.set_facecolor('#000000')
@@ -89,7 +89,7 @@ def generate_bar_chart(language_usage):
 
     plt.tight_layout()
 
-    plt.savefig('output.png', transparent = True)
+    plt.savefig('output.png')
     plt.close()
     print("Bar chart saved as 'output.png'.")
 
