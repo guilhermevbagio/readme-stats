@@ -89,9 +89,9 @@ def generate_bar_chart(language_usage):
 
     plt.tight_layout()
 
-    plt.savefig('languages_usage.png', transparent = True)
+    plt.savefig('output.png', transparent = True)
     plt.close()
-    print("Bar chart saved as 'languages_usage.png'.")
+    print("Bar chart saved as 'output.png'.")
 
 # Main script
 if __name__ == '__main__':
