@@ -22,7 +22,8 @@ jobs:
           python-version: '3.9'
 
       - name: Install Dependencies
-        run: pip install matplotlib  # Install required package
+        run: pip install matplotlib requests
+        
 
       - name: Run Python Script
         run: python readme-stats-gen.py
