@@ -25,7 +25,7 @@ jobs:
         run: pip install matplotlib  # Install required package
 
       - name: Run Python Script
-        run: python generate_image.py  # Run the script to generate PNG
+        run: python readme-stats-gen.py
 
       - name: Commit and Push Output Image
         run: |
