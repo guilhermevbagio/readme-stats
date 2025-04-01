@@ -90,7 +90,7 @@ def generate_bar_chart(language_usage):
 
     plt.tight_layout()
 
-    plt.savefig('output.png', dpi=100)
+    plt.savefig('docs/output.png', dpi=100)
     plt.close()
     print("Bar chart saved as 'output.png'.")
 
