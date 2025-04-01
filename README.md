@@ -1,1 +1,1 @@
-![Generated Image](output.png)
+![Generated Image](docs/output.png)
