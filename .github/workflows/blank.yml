@@ -5,8 +5,8 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * *'  # Runs daily (adjust as needed)
-  workflow_dispatch:  # Allows manual execution
+    - cron: '0 0 * * *'  # Runs daily
+  workflow_dispatch:
 
 jobs:
   generate-image:
